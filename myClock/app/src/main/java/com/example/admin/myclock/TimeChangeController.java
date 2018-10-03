@@ -2,13 +2,13 @@ package com.example.admin.myclock;
 
 import android.app.ExpandableListActivity;
 import android.widget.DigitalClock;
+import android.widget.TextView;
 
 import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.time.Clock;
 import java.time.LocalTime;
 import java.util.Calendar;
-
 public class TimeChangeController implements Command{
     /*
     * This will extend the MainPage cause this is the user input page(main page)
@@ -17,16 +17,21 @@ public class TimeChangeController implements Command{
     *
     * */
 
-    private ClockModel clock;
+    private ClockModel clockModel;
     private Calendar calendar;
-    private TimeView time;
-    private LocalTime currentTime;
+    private Time currentTime;
     private myDigitalClock digitalClockView;
+    private MainPage userChangesTimeView;
 
     public TimeChangeController(ClockModel myClock, myDigitalClock dClock){
         this.digitalClockView = dClock;
-        this.clock = myClock;
+        this.clockModel = myClock;
        // this.time = view;
+    }
+
+    public TimeChangeController(ClockModel myClock,MainPage view){
+        this.clockModel = myClock;
+        this.userChangesTimeView = view;
     }
 
     @Override
@@ -34,28 +39,43 @@ public class TimeChangeController implements Command{
 
     }
 
-    public void UpdateCurrentLocalTime(){
+    public String UpdateCurrentLocalTime(){
         //this will set the hour, min and second.
-        Thread th = new Thread(){
-            @Override
-            public void run() {
-                try {
-                    for(;;) {
-//                        clock.setnHour(currentTime.getHour());
-//                        clock.setnMinute(currentTime.getMinute());
-//                        clock.setnSecond(currentTime.getSecond());
-                        long lTime = System.currentTimeMillis();
-                        SimpleDateFormat sdf = new SimpleDateFormat("MM dd yyyy  hh mm ss a");
-                        String dateToString = sdf.format(lTime);
-                        digitalClockView.setMyFormat(dateToString);
-                        sleep(1000);
-
-                    }
-                }catch(Exception e){}
-
-            }
-        };
-        th.start();
+        clockModel.setnSecond(clockModel.getnSecond());
+        clockModel.setnMinute(clockModel.getnMinute());
+        clockModel.setnHour(clockModel.getnHour());
+        currentTime = new Time(clockModel.getnHour(),clockModel.getnMinute(),clockModel.getnSecond());
+        return currentTime.toString();
 
     }
+
+    public String obtainCurrentTime(){
+        long lTime = System.currentTimeMillis();
+        SimpleDateFormat sdf = new SimpleDateFormat("hh mm ss a");
+        return sdf.format(lTime);
+    }
+
+    public String Tick(){
+
+    clockModel.setnSecond(clockModel.getnSecond()+1);
+    if(clockModel.getnSecond() > 59){
+        int nTmp = clockModel.getnMinute()+clockModel.getnSecond() / 60;
+        clockModel.setnMinute(nTmp);
+        clockModel.setnSecond(clockModel.getnSecond() % 60);
+    }
+    if(clockModel.getnMinute() > 59) {
+        int nTmp = clockModel.getnHour()+clockModel.getnMinute() / 60;
+        clockModel.setnMinute(nTmp);
+        clockModel.setnMinute(clockModel.getnMinute() % 60);
+    }
+    if(clockModel.getnHour() > 24){
+        clockModel.setnHour(0);
+    }
+
+
+
+     currentTime = new Time(clockModel.getnHour(),clockModel.getnMinute(),clockModel.getnSecond());
+    return currentTime.toString();
+    }
+
 }

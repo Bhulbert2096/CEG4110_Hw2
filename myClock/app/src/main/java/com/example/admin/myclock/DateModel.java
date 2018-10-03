@@ -7,6 +7,11 @@ public class DateModel {
     private int nMonth;
     private int nDay;
 
+    public DateModel(int day,int month,int year){
+        this.nYear = year;
+        this.nMonth = month;
+        this.nDay = day;
+    }
     public int getnDay() {
         return nDay;
     }

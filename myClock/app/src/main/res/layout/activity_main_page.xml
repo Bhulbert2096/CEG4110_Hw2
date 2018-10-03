@@ -29,7 +29,7 @@
         tools:text="Analog Clock" />
 
     <Button
-        android:id="@+id/Change_Time"
+        android:id="@+id/Change_Date"
         android:layout_width="125dp"
         android:layout_height="51dp"
         android:layout_marginStart="130dp"
@@ -39,98 +39,51 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        tools:text="Change Time" />
+        tools:text="Change Date" />
 
-    <TextView
+    <EditText
         android:id="@+id/nMonth"
-        android:layout_width="68dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="42dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="48dp"
-        android:text="TextView"
+        android:layout_width="97dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginBottom="170dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Set Month"
         android:textAlignment="center"
-        app:layout_constraintEnd_toStartOf="@+id/nDay"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Digital_Clock"
-        tools:text="Month" />
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
+    <EditText
         android:id="@+id/nDay"
-        android:layout_width="68dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="42dp"
-        android:layout_marginEnd="158dp"
-        android:text="TextView"
+        android:layout_width="97dp"
+        android:layout_height="44dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="7dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Set Day"
         android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Analog_Clock"
-        tools:text="Day" />
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/Change_Date"
+        app:layout_constraintEnd_toStartOf="@+id/nYear" />
 
-    <TextView
-        android:id="@+id/nHour"
-        android:layout_width="68dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="42dp"
-        android:layout_marginBottom="192dp"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:text="Hour" />
-
-    <TextView
-        android:id="@+id/nMinute"
-        android:layout_width="68dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="29dp"
-        android:layout_marginBottom="29dp"
-        android:text="TextView"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/Change_Time"
-        app:layout_constraintEnd_toStartOf="@+id/nSecond"
-        app:layout_constraintHorizontal_bias="0.47"
-        app:layout_constraintStart_toEndOf="@+id/nHour"
-        app:layout_constraintTop_toBottomOf="@+id/Change_Date"
-        app:layout_constraintVertical_bias="0.0"
-        tools:text="Minute" />
-
-    <TextView
-        android:id="@+id/nSecond"
-        android:layout_width="68dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginEnd="42dp"
-        android:layout_marginBottom="193dp"
-        android:text="TextView"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/nMinute"
-        tools:text="Second" />
-
-    <Button
-        android:id="@+id/Change_Date"
-        android:layout_width="125dp"
-        android:layout_height="51dp"
-        android:layout_marginStart="130dp"
-        android:layout_marginTop="21dp"
-        android:layout_marginEnd="129dp"
-        android:text="Change Date"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nDay" />
-
-    <TextView
+    <EditText
         android:id="@+id/nYear"
-        android:layout_width="68dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="42dp"
-        android:layout_marginEnd="34dp"
-        android:text="TextView"
+        android:layout_width="97dp"
+        android:layout_height="44dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="170dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Set Year"
         android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Analog_Clock"
-        tools:text="Year" />
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
