@@ -1,9 +1,13 @@
 package com.example.admin.myclock;
 
 import android.app.ExpandableListActivity;
+import android.widget.DigitalClock;
 
+import java.sql.Time;
+import java.text.SimpleDateFormat;
 import java.time.Clock;
 import java.time.LocalTime;
+import java.util.Calendar;
 
 public class TimeChangeController implements Command{
     /*
@@ -14,12 +18,15 @@ public class TimeChangeController implements Command{
     * */
 
     private ClockModel clock;
+    private Calendar calendar;
     private TimeView time;
     private LocalTime currentTime;
+    private myDigitalClock digitalClockView;
 
-    public TimeChangeController(ClockModel myClock, TimeView view){
+    public TimeChangeController(ClockModel myClock, myDigitalClock dClock){
+        this.digitalClockView = dClock;
         this.clock = myClock;
-        this.time = view;
+       // this.time = view;
     }
 
     @Override
@@ -27,16 +34,20 @@ public class TimeChangeController implements Command{
 
     }
 
-    public void getCurrentLocalTime(){
+    public void UpdateCurrentLocalTime(){
         //this will set the hour, min and second.
         Thread th = new Thread(){
             @Override
             public void run() {
                 try {
                     for(;;) {
-                        clock.setnHour(currentTime.getHour());
-                        clock.setnMinute(currentTime.getMinute());
-                        clock.setnSecond(currentTime.getSecond());
+//                        clock.setnHour(currentTime.getHour());
+//                        clock.setnMinute(currentTime.getMinute());
+//                        clock.setnSecond(currentTime.getSecond());
+                        long lTime = System.currentTimeMillis();
+                        SimpleDateFormat sdf = new SimpleDateFormat("MM dd yyyy  hh mm ss a");
+                        String dateToString = sdf.format(lTime);
+                        digitalClockView.setMyFormat(dateToString);
                         sleep(1000);
 
                     }
@@ -44,6 +55,7 @@ public class TimeChangeController implements Command{
 
             }
         };
+        th.start();
 
     }
 }

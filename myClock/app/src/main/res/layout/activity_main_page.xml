@@ -12,7 +12,7 @@
         android:layout_height="46dp"
         android:layout_marginTop="68dp"
         android:layout_marginEnd="232dp"
-        android:text="Button"
+        android:text="Digital Clock"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Digital Clock" />
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="68dp"
         android:layout_marginEnd="52dp"
-        android:text="Button"
+        android:text="Analog Clock"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Analog Clock" />
@@ -35,7 +35,6 @@
         android:layout_marginStart="130dp"
         android:layout_marginEnd="138dp"
         android:layout_marginBottom="112dp"
-        android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
