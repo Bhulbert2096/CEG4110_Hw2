@@ -6,7 +6,7 @@ import java.util.Calendar;
 public class DateChangeController {
     private DateModel myDate;
     private myDigitalClock myClock;
-    private Calendar myCalendar;
+    private Calendar myCalendar = Calendar.getInstance();
 
     public DateChangeController(DateModel myDate, myDigitalClock dClock){
         this.myClock = dClock;
@@ -16,12 +16,11 @@ public class DateChangeController {
 
     public String CurrentDate(){
         long lTime = System.currentTimeMillis();
-        SimpleDateFormat sdf = new SimpleDateFormat("MM dd YYYY");
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/YYYY");
         return sdf.format(lTime);
     }
 
     public String UpdateDate(){
-        myCalendar.set(myDate.getnYear(),myDate.getnMonth(),myDate.getnDay());
-        return myCalendar.toString();
+        return (Integer.toString(myDate.getnDay()) + "/" + Integer.toString(myDate.getnMonth()) + "/" +Integer.toString(myDate.getnYear()));
     }
 }

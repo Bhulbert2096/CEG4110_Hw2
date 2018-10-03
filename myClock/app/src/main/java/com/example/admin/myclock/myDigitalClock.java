@@ -10,13 +10,13 @@ import android.widget.TextView;
 public class myDigitalClock extends AppCompatActivity {
 
    // private TextView CurrentTime;
-    private   TimeChangeController t = new TimeChangeController(new ClockModel(), this);
+    private   TimeChangeController t = new TimeChangeController(new ClockModel(0,0,0), this);
     private int nHour = 0;
     private int nMinute = 0;
     private int nSecond = 0;
     private boolean ClockisSet = false;
     private DateModel myDate = new DateModel(0,0,0);
-    private ClockModel myClock = new ClockModel();
+    private ClockModel myClock = new ClockModel(0,0,0);
     private DateChangeController dateController = new DateChangeController(new DateModel(0,0,0),this);
 
     private String sFormat;
@@ -24,7 +24,8 @@ public class myDigitalClock extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.digitalclock);
-
+        t = new TimeChangeController(myClock,this);
+        dateController = new DateChangeController(myDate,this);
 
         final EditText txnMinute_Day = findViewById(R.id.nMinute_Day);
         final EditText txnHour_Month = findViewById(R.id.nHour_Month);

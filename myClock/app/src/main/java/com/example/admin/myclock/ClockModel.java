@@ -9,6 +9,12 @@ public class ClockModel {
     private int nSecond;
     private int nMinute;
 
+    public ClockModel(int hour, int minute, int second){
+        this.nHour = hour;
+        this.nSecond = second;
+        this.nMinute = minute;
+    }
+
     public int getnHour() {
         return nHour;
     }

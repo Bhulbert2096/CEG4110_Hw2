@@ -10,7 +10,7 @@ import android.widget.EditText;
 public class MainPage extends AppCompatActivity {
 
 
-    private TimeChangeController timeChange = new TimeChangeController(new ClockModel(), this);
+    private TimeChangeController timeChange = new TimeChangeController(new ClockModel(0,0,0), this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
