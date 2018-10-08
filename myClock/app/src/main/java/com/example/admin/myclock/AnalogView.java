@@ -15,7 +15,7 @@ import java.util.Date;
 
 public class AnalogView extends View {
 //    private Paint myPaint;
-   private boolean isBeginning;
+   private boolean isBeginning = true;
 //    private int[] numbers = {1,2,3,4,5,6,7,8,9,10,11,12};
 //    private int nHeight = 0;
 //    private int nWidth = 0;
@@ -55,7 +55,7 @@ public class AnalogView extends View {
         myClock.setnHandTrunc(nMinimum /20);
         myClock.setnHourHandTrunc(nMinimum /7);
         myClock.setMyPaint(new Paint());
-       isBeginning = true;
+       isBeginning = false;
     }
     private void Clock(){
         myClock = new ClockModel(myClock.getnHour(),myClock.getnMinute(),myClock.getnSecond());
@@ -63,11 +63,11 @@ public class AnalogView extends View {
 
     @Override
     protected void onDraw(final Canvas canvas) {
-        if (!isBeginning) {
+        if (isBeginning) {
             initialClock();
         }
 
-         if(myClock.isCurrentTime()) {
+         if(!myClock.isCurrentTime()) {
              Clock();
              drawCircle(canvas);
              drawCenter(canvas);
@@ -113,8 +113,7 @@ public class AnalogView extends View {
         hour = hour > 12 ? hour - 12 : hour;
         drawHand(canvas, (hour + c.get(Calendar.MINUTE) / 60) * 5f, true);
         drawHand(canvas, c.get(Calendar.MINUTE), false);
-        myClock.setnSecond(myClock.getnSecond()+1);
-        drawHand(canvas,myClock.getnSecond(), false);
+        drawHand(canvas,c.get(Calendar.SECOND), false);
     }
 
     private void drawNumeral(Canvas canvas) {
