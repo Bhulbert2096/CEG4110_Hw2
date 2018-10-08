@@ -11,7 +11,7 @@
         android:layout_width="97dp"
         android:layout_height="44dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="326dp"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="12dp"
         android:ems="10"
         android:inputType="textPersonName"
@@ -20,15 +20,14 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/change_Time"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CurrentTime" />
+        app:layout_constraintTop_toBottomOf="@+id/multiView" />
 
     <EditText
         android:id="@+id/nMinute_Day"
         android:layout_width="97dp"
         android:layout_height="44dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="326dp"
-        android:layout_marginEnd="22dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="12dp"
         android:ems="10"
         android:inputType="textPersonName"
@@ -38,35 +37,39 @@
         app:layout_constraintBottom_toTopOf="@+id/change_Time"
         app:layout_constraintEnd_toStartOf="@+id/nSecond_Year"
         app:layout_constraintStart_toEndOf="@+id/nHour_Month"
-        app:layout_constraintTop_toBottomOf="@+id/CurrentTime" />
+        app:layout_constraintTop_toBottomOf="@+id/multiView"
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/nSecond_Year"
         android:layout_width="97dp"
         android:layout_height="44dp"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="326dp"
-        android:layout_marginEnd="35dp"
-        android:layout_marginBottom="79dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="12dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:textAlignment="center"
         android:textSize="14sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/Change_Date"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/nMinute_Day"
-        app:layout_constraintTop_toBottomOf="@+id/CurrentTime" />
+        app:layout_constraintTop_toBottomOf="@+id/multiView"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/change_Time"
         android:layout_width="125dp"
         android:layout_height="51dp"
-        android:layout_marginStart="41dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="1dp"
         android:layout_marginBottom="16dp"
         android:text="Change Time"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nHour_Month" />
 
     <Button
         android:id="@+id/Change_Date"
@@ -86,28 +89,47 @@
         android:id="@+id/CurrentTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="84dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="85dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="2dp"
         android:ems="10"
         android:inputType="time"
         android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/multiView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/CurrentDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="84dp"
-        android:layout_marginTop="11dp"
-        android:layout_marginEnd="85dp"
+        android:layout_width="130dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="2dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/multiView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/multiView"
+        android:layout_width="368dp"
+        android:layout_height="332dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/nHour_Month"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CurrentTime" />
+        app:layout_constraintTop_toBottomOf="@+id/CurrentTime">
+
+        <LinearLayout
+            android:id = "@+id/multi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>

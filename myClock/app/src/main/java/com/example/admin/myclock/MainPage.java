@@ -19,6 +19,7 @@ public class MainPage extends AppCompatActivity {
 
 
         Button bDigitalClock = findViewById(R.id.Digital_Clock);
+        Button bAnalogClock = findViewById(R.id.Analog_Clock);
 
         bDigitalClock.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -28,6 +29,13 @@ public class MainPage extends AppCompatActivity {
             }
         });
 
+        bAnalogClock.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent startIntent = new Intent(getApplicationContext(),AnalogCreateView.class);
+                startActivity(startIntent);
+            }
+        });
     }
 
 }

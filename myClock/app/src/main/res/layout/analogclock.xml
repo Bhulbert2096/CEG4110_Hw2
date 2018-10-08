@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/Change_Time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginBottom="16dp"
+        android:text="Change Time"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nHour_Month" />
+
+    <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+        <!--xmlns:tools="http://schemas.android.com/tools"-->
+        <!--android:id="@+id/main"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="349dp"-->
+        <!--android:orientation="vertical"-->
+        <!--tools:context=".MainActivity"-->
+        <!--tools:layout_editor_absoluteY="2dp">-->
+
+    <com.example.admin.myclock.AnalogView
+        android:layout_width="296dp"
+        android:layout_height="190dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="101dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="98dp"
+        app:layout_constraintBottom_toTopOf="@+id/nSecond_Year"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <!--</LinearLayout>-->
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Change Time"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nSecond_Year" />
+
+    <EditText
+        android:id="@+id/nHour_Month"
+        android:layout_width="97dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="38dp"
+        android:layout_marginBottom="76dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main"
+        app:layout_constraintVertical_chainStyle="spread_inside" />
+
+    <EditText
+        android:id="@+id/nMinute_Day"
+        android:layout_width="97dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="39dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginBottom="75dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/nSecond_Year"
+        app:layout_constraintStart_toEndOf="@+id/nHour_Month"
+        app:layout_constraintTop_toBottomOf="@+id/main" />
+
+    <EditText
+        android:id="@+id/nSecond_Year"
+        android:layout_width="97dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="38dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="76dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main" />
+
+
+</android.support.constraint.ConstraintLayout>
