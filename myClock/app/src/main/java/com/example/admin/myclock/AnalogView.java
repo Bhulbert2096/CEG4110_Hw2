@@ -128,21 +128,7 @@ private int position = 0;
             }
         });
 
-        Button bWorld_Time = findViewById(R.id.WorldTime);
-        bWorld_Time.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clockModel.isCurrentTime(false);
-                myClock[count].setPadding(31, 31, 31, 0);
-                myClock[count].setMinimumHeight(400);
-                myClock[count].setMinimumWidth(200);
-                clock = new DrawAnalog(v.getContext());
-                clock.initialClock();
-                myLayout.addView(clock, position);
-                position++;
-                count++;
-            }
-        });
+
     }
 }
 
