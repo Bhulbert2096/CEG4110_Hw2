@@ -1,4 +1,4 @@
-# CEG 4110_HW2
+# CEG 4110_HW2  Brandon Hulbert
 
 Homework 2 has several basic functionalities.  The first is the creation of a digital clock to display the current time and allow the user to set the time.  The next is allowing the user to display a analog clock to display the current time and to set the time.  The third is the users ability to update the date and to obtain the current date.  The final function is the ability to have more than one analog clock or digital clock present at a time. 
 
@@ -13,6 +13,7 @@ Hw1 itself is open source with a [public repository]
 
 Hw2 can be either be run through the APK on any system or download the source code
 and opened in an IDE.  I used Android Studio and the programs minimum OS requirement is Android Oreo.
+There is an APK added to this repository for ease of download and installation.
 
 # Structure
 
@@ -30,6 +31,9 @@ This class will actually draw the circle, numbers, and the hands for the clock. 
 
 Model:
 This class will be all the getters and setters that are needed for comunication with the view class.  For example, hour,day,second,minute,month, and year are just some examples of the variables accessable from the model class.  
+
+myDigitalClock:
+This class will allow the user to display mutliple digital clocks.  This will show the current time and allow the user to set the date and time that they want.  It also allows the user to undo and redo actions.  Now this class only takes in the users button actions and sends that data to the TimeChangeController to be manipulated and sent back to the myDigitalClock view to be displayed to the user.  
  
  # Examples
  ![1](https://github.com/Bhulbert2096/CEG4110_Hw2/blob/master/myClock/tmp2.PNG)
