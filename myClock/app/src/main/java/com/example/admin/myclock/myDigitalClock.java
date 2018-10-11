@@ -39,11 +39,18 @@ public class myDigitalClock extends AppCompatActivity {
         changeDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TextView CurrentDate = findViewById(R.id.CurrentDate);
-                myClock.setnDay(Integer.parseInt(txnMinute_Day.getText().toString()));
-                myClock.setnMonth(Integer.parseInt(txnHour_Month.getText().toString()));
-                myClock.setnYear(Integer.parseInt(txnSecond_Year.getText().toString()));
-                CurrentDate.setText(timeChange.UpdateDate());
+                if(txnHour_Month.getText().equals("") && txnMinute_Day.getText().equals("") && txnSecond_Year.getText().equals("")) {
+                    TextView CurrentDate = findViewById(R.id.CurrentDate);
+                    myClock.setnDay(Integer.parseInt(txnMinute_Day.getText().toString()));
+                    myClock.setnMonth(Integer.parseInt(txnHour_Month.getText().toString()));
+                    myClock.setnYear(Integer.parseInt(txnSecond_Year.getText().toString()));
+                    CurrentDate.setText(timeChange.UpdateDate());
+                }
+                else{
+                    txnHour_Month.setText("Please");
+                    txnMinute_Day.setText("Enter");
+                    txnSecond_Year.setText("Numbers");
+                }
             }
         });
 
@@ -53,18 +60,24 @@ public class myDigitalClock extends AppCompatActivity {
         changeTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myClockView = findViewById(R.id.multi);
-                myClockView.addView(newTextView[nCount]);
-                myClock.setnHour(Integer.parseInt(txnHour_Month.getText().toString()));
-                myClock.setnMinute(Integer.parseInt(txnMinute_Day.getText().toString()));
-                myClock.setnSecond(Integer.parseInt(txnSecond_Year.getText().toString()));
-                Model tmp;
-                timeChange.setqUndo( tmp = new Model(myClock.getnHour(),myClock.getnMinute(),myClock.getnSecond()));
-                ClockisSet = true;
-                newTextView[nCount].setText(timeChange.UpdateCurrentLocalTime());
-                UsersSetTime(newTextView[nCount]);
+                if(txnHour_Month.getText().equals("") && txnMinute_Day.getText().equals("") && txnSecond_Year.getText().equals("")) {
+                    myClockView = findViewById(R.id.multi);
+                    myClockView.addView(newTextView[nCount]);
+                    myClock.setnHour(Integer.parseInt(txnHour_Month.getText().toString()));
+                    myClock.setnMinute(Integer.parseInt(txnMinute_Day.getText().toString()));
+                    myClock.setnSecond(Integer.parseInt(txnSecond_Year.getText().toString()));
+                    Model tmp;
+                    timeChange.setqUndo(tmp = new Model(myClock.getnHour(), myClock.getnMinute(), myClock.getnSecond()));
+                    ClockisSet = true;
+                    newTextView[nCount].setText(timeChange.UpdateCurrentLocalTime());
+                    UsersSetTime(newTextView[nCount]);
 
-                nCount++;
+                    nCount++;
+                }else{
+                    txnHour_Month.setText("Please");
+                    txnMinute_Day.setText("Enter");
+                    txnSecond_Year.setText("Numbers");
+                }
             }
         });
 

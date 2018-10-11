@@ -52,6 +52,7 @@ private int position = 0;
         bChange_Time.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(txnHour_Month.getText().equals("") && txnMinute_Day.getText().equals("") && txnSecond_Year.getText().equals("")) {
                     clockModel.setnHour(Integer.parseInt(txnHour_Month.getText().toString()));
                     clockModel.setnMinute(Integer.parseInt(txnMinute_Day.getText().toString()));
                     clockModel.setnSecond(Integer.parseInt(txnSecond_Year.getText().toString()));
@@ -62,11 +63,17 @@ private int position = 0;
                     myClock[count].setPadding(31, 31, 31, 0);
                     myClock[count].setMinimumHeight(400);
                     myClock[count].setMinimumWidth(200);
-                    myLayout.addView(myClock[count], position);
                     position++;
+                    myLayout.addView(myClock[count], position);
                     count++;
                     Model tmp;
                     changeTime.setqUndo(tmp = new Model(clockModel.getnHour(), clockModel.getnMinute(), clockModel.getnSecond()));
+                }
+                else{
+                    txnHour_Month.setText("Please");
+                    txnMinute_Day.setText("Enter");
+                    txnSecond_Year.setText("Numbers");
+                }
             }
         });
 
@@ -85,9 +92,9 @@ private int position = 0;
                 myClock[count].setPadding(31, 31, 31, 0);
                 myClock[count].setMinimumHeight(400);
                 myClock[count].setMinimumWidth(200);
-                position = position - 1;
-                count = count - 1;
-                myLayout.removeView(myClock[count]);
+                //position = position - 1;
+                //count = count - 1;
+                myLayout.removeViewAt(position);
                 myLayout.addView(myClock[count], position);
             }
 
@@ -108,9 +115,9 @@ private int position = 0;
                     myClock[count].setPadding(31, 31, 31, 0);
                     myClock[count].setMinimumHeight(400);
                     myClock[count].setMinimumWidth(200);
-                    position = position - 1;
-                    count = count - 1;
-                    myLayout.removeView(myClock[count]);
+                   // position = position - 1;
+                    //count = count - 1;
+                    myLayout.removeViewAt(position);
                     myLayout.addView(myClock[count], position);
                 }
             }
