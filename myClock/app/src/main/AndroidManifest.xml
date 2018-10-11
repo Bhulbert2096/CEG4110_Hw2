@@ -17,7 +17,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".myDigitalClock"></activity>
-        <activity android:name=".TimeView"></activity>
         <activity android:name=".AnalogView"></activity>
         <activity android:name=".AnalogCreateView"></activity>
     </application>

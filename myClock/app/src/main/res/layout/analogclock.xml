@@ -8,95 +8,111 @@
 
     <Button
         android:id="@+id/Change_Time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="11dp"
+        android:layout_width="82dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="20dp"
         android:layout_marginBottom="16dp"
         android:text="Change Time"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nHour_Month" />
-
-    <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-        <!--xmlns:tools="http://schemas.android.com/tools"-->
-        <!--android:id="@+id/main"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="349dp"-->
-        <!--android:orientation="vertical"-->
-        <!--tools:context=".MainActivity"-->
-        <!--tools:layout_editor_absoluteY="2dp">-->
-
-    <com.example.admin.myclock.AnalogView
-        android:layout_width="296dp"
-        android:layout_height="190dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="101dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginBottom="98dp"
-        app:layout_constraintBottom_toTopOf="@+id/nSecond_Year"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <!--</LinearLayout>-->
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:id="@+id/Change_Date"
+        android:layout_width="82dp"
+        android:layout_height="52dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="Change Time"
+        android:layout_marginBottom="12dp"
+        android:text="Change Date"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nSecond_Year" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
         android:id="@+id/nHour_Month"
         android:layout_width="97dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="38dp"
-        android:layout_marginBottom="76dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="29dp"
+        android:layout_marginBottom="8dp"
         android:ems="10"
         android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/main"
-        app:layout_constraintVertical_chainStyle="spread_inside" />
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/Change_Time"
+        app:layout_constraintEnd_toStartOf="@+id/nMinute_Day"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/nMinute_Day"
         android:layout_width="97dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="31dp"
-        android:layout_marginTop="39dp"
-        android:layout_marginEnd="31dp"
-        android:layout_marginBottom="75dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="4dp"
         android:ems="10"
         android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/nSecond_Year"
-        app:layout_constraintStart_toEndOf="@+id/nHour_Month"
-        app:layout_constraintTop_toBottomOf="@+id/main" />
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/bUndo"
+        app:layout_constraintEnd_toStartOf="@+id/nSecond_Year" />
 
     <EditText
         android:id="@+id/nSecond_Year"
         android:layout_width="97dp"
         android:layout_height="46dp"
-        android:layout_marginTop="38dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="76dp"
+        android:layout_marginBottom="4dp"
         android:ems="10"
         android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/bRedo"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ScrollView
+        android:id="@+id/multiView"
+        android:layout_width="389dp"
+        android:layout_height="341dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/nHour_Month"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/main" />
+        app:layout_constraintStart_toStartOf="parent">
 
+        <LinearLayout
+            android:id="@+id/myLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
+            <com.example.admin.myclock.DrawAnalog
+                android:layout_width="200dp"
+                android:layout_height="300dp"
+                android:layout_centerInParent="true" />
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/bUndo"
+        android:layout_width="82dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginBottom="16dp"
+        android:text="Undo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/Change_Time" />
+
+    <Button
+        android:id="@+id/bRedo"
+        android:layout_width="80dp"
+        android:layout_height="54dp"
+        android:layout_marginBottom="14dp"
+        android:text="Redo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/Change_Date" />
+
+    <EditText
+        android:id="@+id/Date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="1dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

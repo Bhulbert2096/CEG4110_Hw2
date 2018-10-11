@@ -4,13 +4,17 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 
 /*
-This will be just setters and getters for the clock class.
+This will be just setters and getters for the Analog clock class and digital clock class.
  * */
-public class ClockModel {
+public class Model {
 
     private int nHour;
     private int nSecond;
     private int nMinute;
+
+    private int nYear;
+    private int nMonth;
+    private int nDay;
 
     private Paint myPaint;
     private boolean isCurrentTime = true;
@@ -24,13 +28,16 @@ public class ClockModel {
     private int nSpacing = 0;
     private Rect rect = new Rect();
 
-    public ClockModel(int hour, int minute, int second){
+    public Model(int hour, int minute, int second){
         this.nHour = hour;
         this.nSecond = second;
         this.nMinute = minute;
+        this.nMonth = hour;
+        this.nDay = minute;
+        this.nYear = second;
     }
 
-    public ClockModel(){
+    public Model(){
 
     }
 
@@ -153,5 +160,29 @@ public class ClockModel {
     public boolean isCurrentTime() { return isCurrentTime; }
     public void isCurrentTime(boolean b){
         isCurrentTime = b;
+    }
+
+    public int getnYear() {
+        return nYear;
+    }
+
+    public void setnYear(int nYear) {
+        this.nYear = nYear;
+    }
+
+    public int getnMonth() {
+        return nMonth;
+    }
+
+    public void setnMonth(int nMonth) {
+        this.nMonth = nMonth;
+    }
+
+    public int getnDay() {
+        return nDay;
+    }
+
+    public void setnDay(int nDay) {
+        this.nDay = nDay;
     }
 }
